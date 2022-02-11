@@ -1,6 +1,6 @@
 # crypto_simple
 
-A Simple Cryptography Package For Flutter .
+A library for encrypt and decrypt string , very light & simple and fast.
 
 ## Get started
 
@@ -9,7 +9,7 @@ A Simple Cryptography Package For Flutter .
 
 ```yaml
 dependencies:
-  crypto_simple: ^1.0.0
+  crypto_simple: ^1.1.0
 ```
 
 ### Add import
@@ -23,7 +23,7 @@ Initialize Package  ..
 ```dart
 import 'package:crypto_simple/crypto_simple.dart';
 void main () {
-  CryptoSimple(superKey: 2022); ///this part is mandatory
+  CryptoSimple(superKey: 2022 , subKey: 99); ///this part is mandatory
   runApp(MyApp());
 }
 ```
