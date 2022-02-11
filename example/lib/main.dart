@@ -6,7 +6,8 @@ void main() {
   /// if not initialize CryptoSimple you'll have an error .
   /// It is recommended to define CryptoSimple object at the beginning of the main file.
   /// when set superKey value on zero or a negative number or superKey value was divisible by 1114111 you'll automatically have an assert error .
-  CryptoSimple(superKey: 8);
+  /// subKey value must between 10~99 , otherwise you'll automatically have an assert error .
+  CryptoSimple(superKey: 2,subKey:12);
 
   runApp(MyApp());
 }

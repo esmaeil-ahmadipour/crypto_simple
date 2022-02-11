@@ -1,6 +1,6 @@
 name: crypto_simple
-description: A Simple Cryptography Package For Flutter .
-version: 1.0.0
+description: A library for encrypt and decrypt string , very light & simple and fast.
+version: 1.1.0
 repository: https://github.com/esmaeil-ahmadipour/crypto_simple
 homepage: https://github.com/esmaeil-ahmadipour/crypto_simple
 

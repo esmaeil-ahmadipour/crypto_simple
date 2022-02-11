@@ -18,7 +18,7 @@ class _MyHomePageState extends State<MyHomePage> {
   @override
   void initState() {
     /// this is example .  you can change value in _token variable .
-    _token = 'bearer س5@1#fG';
+    _token = 'bearer 5@1#fGa';
 
     ///  use CryptoSimple.instance.encode() to determine the text you want to encrypt.
     _encodeResult = CryptoSimple.instance.encrypt(inputText: _token!);
