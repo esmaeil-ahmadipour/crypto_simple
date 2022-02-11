@@ -1,6 +1,6 @@
 name: crypto_simple
 description: A library for encrypt and decrypt string , very light & simple and fast.
-version: 1.1.0
+version: 1.1.1
 repository: https://github.com/esmaeil-ahmadipour/crypto_simple
 homepage: https://github.com/esmaeil-ahmadipour/crypto_simple
 

@@ -6,10 +6,10 @@ A library for encrypt and decrypt string , very light & simple and fast.
 
 
 ### Add dependency
-
+ 
 ```yaml
 dependencies:
-  crypto_simple: ^1.1.0
+  crypto_simple: ^1.1.1
 ```
 
 ### Add import
