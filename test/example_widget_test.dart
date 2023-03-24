@@ -1,7 +1,7 @@
-import 'package:crypto_simple/crypto_simple.dart';
-import 'package:crypto_simple_example/main.dart';
-import 'package:flutter/material.dart';
+import 'package:crypto_simple/index.dart';
 import 'package:flutter_test/flutter_test.dart';
+
+import '../example/lib/main.dart';
 
 void main() {
   List<String> titleList = ["Token", "Encoding", "Decoding"];
@@ -15,7 +15,7 @@ void main() {
     cryptoSimple = CryptoSimple(
       superKey: 2023,
       subKey: 44,
-      secretKey: "MySecretKey",
+      secretKey: "MySecretKey! ;)",
       encryptionMode: EncryptionMode.Randomized,
     );
     token = 'bearer 5@1#fGa';
