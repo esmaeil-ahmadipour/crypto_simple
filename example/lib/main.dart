@@ -1,6 +1,12 @@
 import 'index.dart';
 
 void main() {
+  /// Instantiate a CryptoSimple object with recommended parameters.
+  CryptoSimple(
+      superKey: 2023,
+      subKey: 47,
+      secretKey: "M8tFjsv5tFH&#1e3vC",
+      encryptionMode: EncryptionMode.Randomized);
   runApp(CryptoSimpleDemo());
 }
 
@@ -26,7 +32,6 @@ class CryptoSimpleDemoPage extends StatefulWidget {
 }
 
 class _CryptoSimpleDemoPageState extends State<CryptoSimpleDemoPage> {
-  late CryptoSimple cryptoSimple;
   late String token;
   late String encodeResult;
   late String decodeResult;
@@ -52,7 +57,6 @@ class _CryptoSimpleDemoPageState extends State<CryptoSimpleDemoPage> {
 
   @override
   void initState() {
-    initialCryptoSimple();
     initialValues();
     super.initState();
   }
@@ -60,20 +64,11 @@ class _CryptoSimpleDemoPageState extends State<CryptoSimpleDemoPage> {
   /// The [initialValues] method sets the initial values of [token] , [encodeResult] , and [decodeResult] .
   void initialValues() {
     token = 'bearer 5@1#fGa';
-    encodeResult = cryptoSimple.encrypting(inputString: token);
-    decodeResult = cryptoSimple.decrypting(encrypted: encodeResult);
+    encodeResult = CryptoSimple.encrypt(inputString: token);
+    decodeResult = CryptoSimple.decrypt(encrypted: encodeResult);
   }
 
-  /// The [initialCryptoSimple] method  Instantiate a [CryptoSimple] object with required parameters.
-  void initialCryptoSimple() {
-    cryptoSimple = CryptoSimple(
-        superKey: 2023,
-        subKey: 44,
-        secretKey: "MySecretKey",
-        encryptionMode: EncryptionMode.Randomized);
-  }
-
-  /// The [restart] method calls the [initialValues] method to reset the values of `_token`, `_encodeResult`, and `_decodeResult`.
+  /// The [restart] method calls the [initialValues] method to reset the values of [token] , [encodeResult] , and [decodeResult] .
   /// It then calls the [setState] method to update the widget's state with the new values.
   void restart() {
     initialValues();

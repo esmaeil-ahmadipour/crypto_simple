@@ -1,6 +1,5 @@
-import 'package:crypto_simple/index.dart';
 import 'package:flutter_test/flutter_test.dart';
-
+import '../example/lib/index.dart';
 import '../example/lib/main.dart';
 
 void main() {

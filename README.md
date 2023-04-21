@@ -1,20 +1,18 @@
-# crypto_simple
+![Screenshot](https://github.com/esmaeil-ahmadipour/esmaeil-ahmadipour/blob/main/upload/packages/crypto_simple/banner.png?raw=true "Flutter Glass Banner")
 
+# Crypto Simple plugin
 A library for encrypt and decrypt string , very light & simple and fast.
 
-## Get started
-
-### Add dependency
-
+### Install Package
 ```yaml
 dependencies:
-  crypto_simple: ^2.0.0
+  crypto_simple: ^2.1.0
 ```
 
 ### Add import
 
 ```yaml
-import 'package:crypto_simple/crypto_simple.dart';
+import 'package:crypto_simple/src/crypto_simple.dart';
 ```
 
 ### Super simple to use
@@ -22,12 +20,12 @@ import 'package:crypto_simple/crypto_simple.dart';
 Initialize Package ..
 
 ```dart
-import 'package:crypto_simple/crypto_simple.dart';
+import 'package:crypto_simple/src/crypto_simple.dart';
 
 void main() {
   CryptoSimple(
     superKey: 2023,
-    subKey: 44,
+    subKey: 47,
     secretKey: "MySecretKey! ;)",
     encryptionMode: EncryptionMode.Randomized,
   );
@@ -40,16 +38,15 @@ void main() {
 Using ..
 
 ```dart
-
+// Your instance string value.
 String? _token = 'bearer 5@1#fG!';
-String? _encodeResult =
-CryptoSimple.instance.encrypting(inputString: _token!);
 
-/// easy encrypt !
-String? _decodeResult =
-CryptoSimple.instance.decrypting(encrypted: _encodeResult!);
+// easy encrypt !
+String? _encodeResult = CryptoSimple.encrypt(inputString: _token!);
 
-/// easy decrypt !
+// easy decrypt !
+String? _decodeResult = CryptoSimple.decrypti(encrypted: _encodeResult!);
+
 ```
 
 

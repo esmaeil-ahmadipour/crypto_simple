@@ -1,3 +1,8 @@
+## 2.1.0
+
+* add more documents .
+* remove deprecated methods .
+
 ## 2.0.0
 
 * add Randomized mode for encryption/decryption .

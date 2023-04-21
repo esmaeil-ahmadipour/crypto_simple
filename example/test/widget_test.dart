@@ -1,7 +1,8 @@
-import 'package:crypto_simple/crypto_simple.dart';
-import 'package:crypto_simple_example/main.dart';
+import 'package:crypto_simple/src/crypto_simple.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
+
+import '../lib/main.dart';
 
 void main() {
   List<String> titleList = ["Token", "Encoding", "Decoding"];

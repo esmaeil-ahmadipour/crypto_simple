@@ -1,8 +1,9 @@
 name: crypto_simple
 description: A library for encrypt and decrypt string , very light & simple and fast.
-version: 2.0.0
+version: 2.1.0
 repository: https://github.com/esmaeil-ahmadipour/crypto_simple
 homepage: https://github.com/esmaeil-ahmadipour/crypto_simple
+issue_tracker: https://github.com/esmaeil-ahmadipour/crypto_simple/issues
 
 environment:
   sdk: ">=2.12.0 <3.0.0"
@@ -17,3 +18,8 @@ dev_dependencies:
     sdk: flutter
 
 flutter:
+
+
+screenshots:
+  - description: The crypto simple package logo.
+    path: assets/crypto_simple_logo.png
