@@ -64,8 +64,8 @@ class _CryptoSimpleDemoPageState extends State<CryptoSimpleDemoPage> {
   /// The [initialValues] method sets the initial values of [token] , [encodeResult] , and [decodeResult] .
   void initialValues() {
     token = 'bearer 5@1#fGa';
-    encodeResult = CryptoSimple.encrypt(inputString: token);
-    decodeResult = CryptoSimple.decrypt(encrypted: encodeResult);
+    encodeResult = CryptoSimple.instance.encrypting(inputString: token);
+    decodeResult = CryptoSimple.instance.decrypting(encrypted: encodeResult);
   }
 
   /// The [restart] method calls the [initialValues] method to reset the values of [token] , [encodeResult] , and [decodeResult] .

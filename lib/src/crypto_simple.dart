@@ -7,18 +7,6 @@ import 'package:crypto_simple/crypto_simple.dart';
 class CryptoSimple {
   static final CryptoSimple _crypto = CryptoSimple._internal();
 
-  /// The [encrypt] method takes a string inputString as an argument and returns an encrypted version of the string.
-  /// The method returns the encrypted string as a string.
-  static String encrypt({required String inputString}) {
-    return _crypto.encrypting(inputString: inputString);
-  }
-
-  /// The [decrypt] method takes an encrypted string encrypted as an argument and returns the decrypted version of the string.
-  /// The method returns the decrypted string as a string.
-  static String decrypt({required String encrypted}) {
-    return _crypto.decrypting(encrypted: encrypted);
-  }
-
   /// The [resetObject] method resets the [_lock] instance variable to false.
   /// It is used internally within the class to reset the lock after unit tests are run.
   void resetObject() {
@@ -35,7 +23,7 @@ class CryptoSimple {
   /// create a new instance of the [CryptoSimple] class.
   CryptoSimple._internal();
 
-  /// [_superKey] A positive integer that is not divisible by 1114111.
+  /// [_superKey] A positive integer that is not divisible by [_maxCharLimit].
   int? _superKey;
 
   /// [_subKey] An integer between 10 and 99 .
@@ -62,6 +50,7 @@ class CryptoSimple {
       {int? superKey,
       int? subKey,
       String? secretKey,
+      SecurityMode? securityMode = SecurityMode.XOR,
       EncryptionMode? encryptionMode = EncryptionMode.Normal}) {
     assert(!_crypto._lock, "CryptoSimple class has already been instantiated.");
 
@@ -114,9 +103,9 @@ class CryptoSimple {
   }) {
     final textInputCode = char.codeUnitAt(0);
     final shiftedCode = textInputCode + _crypto._superKey!;
-    final resultCharCode = shiftedCode > 1114111
+    final resultCharCode = shiftedCode > _maxCharLimit
         ? _obscureAtEncrypt(
-            charCode: '${shiftedCode % 1114111}',
+            charCode: '${shiftedCode % _maxCharLimit}',
             characterIndex: charIndex,
             subKey: _crypto._subKey!,
           )
@@ -168,7 +157,7 @@ class CryptoSimple {
           charCode: "$char");
       resultCharCode =
           (int.parse(textInputCode) - CryptoSimple._crypto._superKey!) %
-              1114111;
+              _maxCharLimit;
     }
     return String.fromCharCode(resultCharCode);
   }
@@ -295,7 +284,7 @@ class CryptoSimple {
           ivBytes[i % ivBytes.length];
     }
 
-    return base64.encode(ivBytes + result);
+    return base64.encode([...ivBytes, ...result]);
   }
 
   /// [_decryptXOR] private method :

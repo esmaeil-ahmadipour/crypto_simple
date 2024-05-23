@@ -1,7 +1,15 @@
+## 2.2.0
+
+* update documentations .
+* removed deprecated `encrypt` method.
+* removed deprecated `decrypt` method.
+* setting minimum required properties for create `CryptoSimple` object
+
 ## 2.1.0
 
 * add more documents .
-* remove deprecated methods .
+* deprecated `encrypt` method and replaced to `encrypting` .
+* deprecated `decrypt` method and replaced to `decrypting` .
 
 ## 2.0.0
 

@@ -6,7 +6,7 @@ A library for encrypt and decrypt string , very light & simple and fast.
 ### Install Package
 ```yaml
 dependencies:
-  crypto_simple: ^2.1.0
+  crypto_simple: ^2.2.0
 ```
 
 ### Add import
@@ -23,6 +23,9 @@ Initialize Package ..
 import 'package:crypto_simple/src/crypto_simple.dart';
 
 void main() {
+
+  // set configuration for [CryptoSimple] object , this part is mandatory
+  // this object is singleton and easy to used 
   CryptoSimple(
     superKey: 2023,
     subKey: 47,
@@ -30,7 +33,6 @@ void main() {
     encryptionMode: EncryptionMode.Randomized,
   );
 
-  ///this part is mandatory
   runApp(MyApp());
 }
 ```
@@ -42,10 +44,10 @@ Using ..
 String? _token = 'bearer 5@1#fG!';
 
 // easy encrypt !
-String? _encodeResult = CryptoSimple.encrypt(inputString: _token!);
+String? _encodeResult = CryptoSimple.instance.encrypting(inputString: _token!);
 
 // easy decrypt !
-String? _decodeResult = CryptoSimple.decrypti(encrypted: _encodeResult!);
+String? _decodeResult = CryptoSimple.instance.decrypting(encrypted: _encodeResult!);
 
 ```
 
