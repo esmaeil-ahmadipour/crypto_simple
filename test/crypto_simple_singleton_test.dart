@@ -1,14 +1,15 @@
-import 'package:crypto_simple/src/crypto/objects/crypto_simple.dart';
+import 'package:crypto_simple/crypto_simple.dart';
+import 'package:crypto_simple/src/crypto/objects/crypto_simple_singleton.dart';
 import 'package:crypto_simple/src/utils/enums.dart';
 import 'package:flutter_test/flutter_test.dart';
 
 void main() {
-  group('CryptoSimple', () {
+  group('CryptoSimpleSingleton', () {
     test(
-        'Creating a CryptoSimple with an empty secret key should throw an exception',
+        'Creating a CryptoSimpleSingleton with an empty secret key should throw an exception',
         () {
       expect(
-        () => CryptoSimple(
+        () => CryptoSimpleSingleton(
           superKey: 123,
           subKey: 10,
           secretKey: '',
@@ -19,10 +20,10 @@ void main() {
     });
 
     test(
-        'Creating a CryptoSimple with encryption mode set to Randomized and no secret key should throw an exception',
+        'Creating a CryptoSimpleSingleton with encryption mode set to Randomized and no secret key should throw an exception',
         () {
       expect(
-        () => CryptoSimple(
+        () => CryptoSimpleSingleton(
           superKey: 123,
           subKey: 10,
           secretKey: null,
@@ -33,10 +34,10 @@ void main() {
     });
 
     test(
-        'Creating a CryptoSimple with subKey set to an integer outside the range [10, 99] should throw an exception',
+        'Creating a CryptoSimpleSingleton with subKey set to an integer outside the range [10, 99] should throw an exception',
         () {
       expect(
-        () => CryptoSimple(
+        () => CryptoSimpleSingleton(
           superKey: 123,
           subKey: 100,
           secretKey: 'mySecretKey',
@@ -47,10 +48,10 @@ void main() {
     });
 
     test(
-        'Creating a CryptoSimple with superKey set to a value that is divisible by 1114111 should throw an exception',
+        'Creating a CryptoSimpleSingleton with superKey set to a value that is divisible by 1114111 should throw an exception',
         () {
       expect(
-        () => CryptoSimple(
+        () => CryptoSimpleSingleton(
           superKey: 1114111,
           subKey: 10,
           secretKey: 'mySecretKey',
@@ -61,10 +62,12 @@ void main() {
     });
 
     test(
-        'Creating a CryptoSimple without secretKey and try set encryptionMode to EncryptionMode.Randomized , should throw an exception',
+        'Creating a CryptoSimpleSingleton without secretKey and try set encryptionMode to EncryptionMode.Randomized , should throw an exception',
         () {
+      CryptoSimpleSingleton.instance.resetObject();
+
       expect(
-        () => CryptoSimple(
+        () => CryptoSimpleSingleton(
             superKey: 123,
             subKey: 10,
             encryptionMode: EncryptionMode.Randomized),
@@ -75,7 +78,11 @@ void main() {
     test(
         'Decrypting an encrypted text should return the original text in EncryptionMode.Normal',
         () {
-      final crypto = CryptoSimple(
+      // Restarting the CryptoSimpleSingleton object in here ,
+      // because it has already been created and the test will encounter an error.
+      CryptoSimpleSingleton.instance.resetObject();
+
+      final crypto = CryptoSimpleSingleton(
         superKey: 123,
         subKey: 22,
         secretKey: 'mySecretKey',
@@ -94,7 +101,11 @@ void main() {
     test(
         'Decrypting an encrypted text should return the original text in EncryptionMode.Randomized',
         () {
-      final crypto = CryptoSimple(
+      // Restarting the CryptoSimpleSingleton object in here ,
+      // because it has already been created and the test will encounter an error.
+      CryptoSimpleSingleton.instance.resetObject();
+
+      final crypto = CryptoSimpleSingleton(
         superKey: 123,
         subKey: 10,
         secretKey: 'mySecretKey',
@@ -109,9 +120,12 @@ void main() {
     test(
         'Decrypting an encrypted text should return the original text without set secretKey & encryptionMode',
         () {
+      // Restarting the CryptoSimpleSingleton object in here ,
+      // because it has already been created and the test will encounter an error.
+      CryptoSimpleSingleton.instance.resetObject();
       final originalText = 'hello';
 
-      final crypto = CryptoSimple(superKey: 123, subKey: 10);
+      final crypto = CryptoSimpleSingleton(superKey: 123, subKey: 10);
       final encryptedText = crypto.encryption(inputString: originalText);
       expect(encryptedText, isNotNull);
       expect(encryptedText, isNot(originalText));
@@ -122,8 +136,11 @@ void main() {
     test(
         'Decrypting an encrypted text should return the original text , by set EncryptionMode.Randomized without set superKey & subKey',
         () {
+      // Restarting the CryptoSimpleSingleton object in here ,
+      // because it has already been created and the test will encounter an error.
+      CryptoSimpleSingleton.instance.resetObject();
       final originalText = 'hello world';
-      final crypto = CryptoSimple(
+      final crypto = CryptoSimpleSingleton(
           secretKey: 'mySecretKey', encryptionMode: EncryptionMode.Randomized);
       final encryptedText = crypto.encryption(inputString: originalText);
       expect(encryptedText, isNotNull);
@@ -136,7 +153,11 @@ void main() {
     test(
         'Decrypting an encrypted text should return the original text , by set secretKey without set superKey & subKey',
         () {
-      final crypto = CryptoSimple(secretKey: 'mySecretKey');
+      // Restarting the CryptoSimpleSingleton object in here ,
+      // because it has already been created and the test will encounter an error.
+      CryptoSimpleSingleton.instance.resetObject();
+
+      final crypto = CryptoSimpleSingleton(secretKey: 'mySecretKey');
       final originalText = 'hello world';
 
       final encryptedText = crypto.encryption(inputString: originalText);
@@ -150,7 +171,11 @@ void main() {
     test(
         'Decrypting an encrypted text should return the original text , by set secretKey & EncryptionMode.Normal without set superKey & subKey',
         () {
-      final crypto = CryptoSimple(
+      // Restarting the CryptoSimpleSingleton object in here ,
+      // because it has already been created and the test will encounter an error.
+      CryptoSimpleSingleton.instance.resetObject();
+
+      final crypto = CryptoSimpleSingleton(
           secretKey: 'mySecretKey', encryptionMode: EncryptionMode.Normal);
       final originalText = 'hello world';
 

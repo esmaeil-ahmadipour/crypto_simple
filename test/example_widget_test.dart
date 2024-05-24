@@ -1,3 +1,4 @@
+import 'package:crypto_simple/src/utils/enums.dart';
 import 'package:flutter_test/flutter_test.dart';
 import '../example/lib/index.dart';
 import '../example/lib/main.dart';
@@ -10,20 +11,20 @@ void main() {
     late String token;
     late String encode;
     late String decode;
-    late CryptoSimple cryptoSimple;
-    cryptoSimple = CryptoSimple(
+    late CryptoSimpleSingleton cryptoSimpleSingleton;
+    cryptoSimpleSingleton = CryptoSimpleSingleton(
       superKey: 2023,
       subKey: 44,
       secretKey: "MySecretKey! ;)",
       encryptionMode: EncryptionMode.Randomized,
     );
     token = 'bearer 5@1#fGa';
-    encode = cryptoSimple.encrypting(inputString: token);
-    decode = cryptoSimple.decrypting(encrypted: encode);
+    encode = cryptoSimpleSingleton.encryption(inputString: token);
+    decode = cryptoSimpleSingleton.decryption(encryptedString: encode);
     dataList = [token, encode, decode];
   });
 
-  group('Test ItemWidgets at CryptoSimpleDemoPage', () {
+  group('Test ItemWidgets at CryptoSimpleSingletonDemoPage', () {
     for (var i = 0; i < titleList.length; ++i) {
       testWidgets('ItemWidget displays ${titleList[i]} and data',
           (WidgetTester tester) async {

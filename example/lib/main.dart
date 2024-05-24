@@ -1,37 +1,40 @@
 import 'index.dart';
 
 void main() {
-  /// Instantiate a CryptoSimple object with recommended parameters.
-  CryptoSimple(
+  /// Instantiate a CryptoSimpleSingleton object with recommended parameters.
+  CryptoSimpleSingleton(
       superKey: 2023,
       subKey: 47,
       secretKey: "M8tFjsv5tFH&#1e3vC",
       encryptionMode: EncryptionMode.Randomized);
-  runApp(CryptoSimpleDemo());
+  runApp(CryptoSimpleSingletonDemo());
 }
 
-class CryptoSimpleDemo extends StatelessWidget {
-  const CryptoSimpleDemo({Key? key}) : super(key: key);
+class CryptoSimpleSingletonDemo extends StatelessWidget {
+  const CryptoSimpleSingletonDemo({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    const String _title = 'CryptoSimple Demo';
+    const String _title = 'CryptoSimpleSingleton Demo';
     return MaterialApp(
         title: _title,
         theme: ThemeData(primarySwatch: Colors.blue),
-        home: CryptoSimpleDemoPage(title: _title));
+        home: CryptoSimpleSingletonDemoPage(title: _title));
   }
 }
 
-class CryptoSimpleDemoPage extends StatefulWidget {
-  const CryptoSimpleDemoPage({Key? key, required this.title}) : super(key: key);
+class CryptoSimpleSingletonDemoPage extends StatefulWidget {
+  const CryptoSimpleSingletonDemoPage({Key? key, required this.title})
+      : super(key: key);
   final String title;
 
   @override
-  State<CryptoSimpleDemoPage> createState() => _CryptoSimpleDemoPageState();
+  State<CryptoSimpleSingletonDemoPage> createState() =>
+      _CryptoSimpleSingletonDemoPageState();
 }
 
-class _CryptoSimpleDemoPageState extends State<CryptoSimpleDemoPage> {
+class _CryptoSimpleSingletonDemoPageState
+    extends State<CryptoSimpleSingletonDemoPage> {
   late String token;
   late String encodeResult;
   late String decodeResult;
@@ -64,8 +67,10 @@ class _CryptoSimpleDemoPageState extends State<CryptoSimpleDemoPage> {
   /// The [initialValues] method sets the initial values of [token] , [encodeResult] , and [decodeResult] .
   void initialValues() {
     token = 'bearer 5@1#fGa';
-    encodeResult = CryptoSimple.instance.encrypting(inputString: token);
-    decodeResult = CryptoSimple.instance.decrypting(encrypted: encodeResult);
+    encodeResult =
+        CryptoSimpleSingleton.instance.encryption(inputString: token);
+    decodeResult = CryptoSimpleSingleton.instance
+        .decryption(encryptedString: encodeResult);
   }
 
   /// The [restart] method calls the [initialValues] method to reset the values of [token] , [encodeResult] , and [decodeResult] .

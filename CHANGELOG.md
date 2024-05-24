@@ -1,3 +1,8 @@
+## 3.0.0
+
+* changed structure for support singleton and classic objects
+* update test & docs & examples
+
 ## 2.2.0
 
 * update documentations .

@@ -6,7 +6,7 @@ A library for encrypt and decrypt string , very light & simple and fast.
 ### Install Package
 ```yaml
 dependencies:
-  crypto_simple: ^2.2.0
+  crypto_simple: ^3.0.0
 ```
 
 ### Add import
@@ -15,21 +15,26 @@ dependencies:
 import 'package:crypto_simple/src/crypto_simple.dart';
 ```
 
-### Super simple to use
+### Super simple to use in `Singleton` & `Classic` objects.
 
-Initialize Package ..
+---
+
+#### 1️⃣ . How to using package as `Singleton Object` ?
+
+
+###### - Define/Config Object:
 
 ```dart
 import 'package:crypto_simple/src/crypto_simple.dart';
 
 void main() {
 
-  // set configuration for [CryptoSimple] object , this part is mandatory
+  // set configuration for [CryptoSimpleSingleton] object , this part is mandatory
   // this object is singleton and easy to used 
-  CryptoSimple(
+  CryptoSimpleSingleton(
     superKey: 2023,
     subKey: 47,
-    secretKey: "MySecretKey! ;)",
+    secretKey: "MySecretKey! ;)",// *Recommended
     encryptionMode: EncryptionMode.Randomized,
   );
 
@@ -37,17 +42,42 @@ void main() {
 }
 ```
 
-Using ..
+###### - Consume Object:
+```dart
+// Your string value.
+String token = 'bearer 5@1#fG!';
+
+// easy encrypt 🛡️ !
+String encodeResult = CryptoSimple.instance.encryption(inputString: token);
+
+// easy decrypt 🕵️‍♂️ !
+String decodeResult = CryptoSimple.instance.decryption(encryptedString: encodeResult);
+
+```
+
+---
+
+#### 2️⃣ . How to using package as `Classic Object` ?
+
 
 ```dart
-// Your instance string value.
-String? _token = 'bearer 5@1#fG!';
 
-// easy encrypt !
-String? _encodeResult = CryptoSimple.instance.encrypting(inputString: _token!);
+// Define `CryptoSimple` object and set encode/decode configurations
+final CryptoSimple normalCrypto = CryptoSimple(
+  superKey: 123,
+  subKey: 22,
+  secretKey: 'mySecretKey',
+  encryptionMode: EncryptionMode.Randomized,
+);
 
-// easy decrypt !
-String? _decodeResult = CryptoSimple.instance.decrypting(encrypted: _encodeResult!);
+// Your string value.
+String token = 'bearer 5@1#fG!';
+
+// do encryption 🛡️ !
+String encodeResult = normalCrypto.encryption(inputString: token);
+
+// do decryption 🕵️‍♂️ !
+String decodeResult = normalCrypto.decryption(encryptedString: encodeResult);
 
 ```
 
