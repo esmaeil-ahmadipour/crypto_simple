@@ -1,4 +1,4 @@
-import 'index.dart';
+import 'package:flutter/material.dart';
 
 class CryptoSimpleDecoratedContainer extends StatelessWidget {
   const CryptoSimpleDecoratedContainer({

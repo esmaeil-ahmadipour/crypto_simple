@@ -1,4 +1,6 @@
-import 'package:crypto_simple/crypto_simple.dart';
+import 'objects.dart';
+import 'package:flutter/foundation.dart' show kIsWeb;
+import 'dart:io' show Platform;
 
 class CryptoSimpleSingleton
     implements

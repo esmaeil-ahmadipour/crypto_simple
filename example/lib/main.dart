@@ -1,4 +1,6 @@
-import 'index.dart';
+import 'package:crypto_simple/crypto_simple.dart';
+import 'package:crypto_simple_example/customWidgets.dart';
+import 'package:flutter/material.dart';
 
 void main() {
   /// Instantiate a CryptoSimpleSingleton object with recommended parameters.

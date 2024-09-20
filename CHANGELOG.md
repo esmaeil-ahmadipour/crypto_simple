@@ -1,3 +1,9 @@
+## 3.0.1
+
+* delete the `material.dart` file from the package `import`s
+
+* reduction of unused sections in `import` files
+
 ## 3.0.0
 
 * changed structure for support singleton and classic objects

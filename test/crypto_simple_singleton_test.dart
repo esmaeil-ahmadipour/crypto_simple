@@ -1,6 +1,4 @@
 import 'package:crypto_simple/crypto_simple.dart';
-import 'package:crypto_simple/src/crypto/objects/crypto_simple_singleton.dart';
-import 'package:crypto_simple/src/utils/enums.dart';
 import 'package:flutter_test/flutter_test.dart';
 
 void main() {

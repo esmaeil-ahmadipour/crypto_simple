@@ -1,4 +1,4 @@
-import 'package:crypto_simple/crypto_simple.dart';
+import 'objects.dart';
 
 class CryptoSimple
     implements

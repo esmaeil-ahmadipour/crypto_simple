@@ -1,4 +1,4 @@
-![Screenshot](https://github.com/esmaeil-ahmadipour/esmaeil-ahmadipour/blob/main/upload/packages/crypto_simple/banner.png?raw=true "Flutter Glass Banner")
+![Screenshot](https://github.com/esmaeil-ahmadipour/esmaeil-ahmadipour/blob/main/upload/packages/crypto_simple/banner.png?raw=true "crypto simple banner")
 
 # Crypto Simple plugin
 A library for encrypt and decrypt string , very light & simple and fast.
@@ -6,7 +6,7 @@ A library for encrypt and decrypt string , very light & simple and fast.
 ### Install Package
 ```yaml
 dependencies:
-  crypto_simple: ^3.0.0
+  crypto_simple: ^3.0.1
 ```
 
 ### Add import

@@ -1,7 +1,7 @@
 name: crypto_simple_example
 description: Demonstrates how to use the crypto_simple plugin.
 publish_to: 'none'
-version: 3.0.0+6
+version: 3.0.1+7
 
 environment:
   sdk: ">=2.12.0 <3.0.0"
