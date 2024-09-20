@@ -1,6 +1,4 @@
 import 'objects.dart';
-import 'package:flutter/foundation.dart' show kIsWeb;
-import 'dart:io' show Platform;
 
 class CryptoSimpleSingleton
     implements
@@ -12,9 +10,7 @@ class CryptoSimpleSingleton
   /// The [resetObject] method resets the [_lock] instance variable to false.
   /// It is used internally within the class to reset the lock after unit tests are run.
   void resetObject() {
-    if (kIsWeb == false && Platform.environment.containsKey('FLUTTER_TEST')) {
-      _crypto._lock = false;
-    }
+    _crypto._lock = MultiPlatforms.resetSingletonObjectLock();
   }
 
   /// [_internal] private constructor :

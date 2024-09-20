@@ -1,7 +1,10 @@
+## 3.0.2
+
+* add `MultiPlatforms` class for help to using any files have running problem in web/no_web environments
+
 ## 3.0.1
 
 * delete the `material.dart` file from the package `import`s
-
 * reduction of unused sections in `import` files
 
 ## 3.0.0

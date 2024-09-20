@@ -6,7 +6,7 @@ A library for encrypt and decrypt string , very light & simple and fast.
 ### Install Package
 ```yaml
 dependencies:
-  crypto_simple: ^3.0.1
+  crypto_simple: ^3.0.2
 ```
 
 ### Add import

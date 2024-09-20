@@ -1,0 +1,3 @@
+bool resetSingletonObjectLock() {
+  return true;
+}
