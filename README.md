@@ -12,7 +12,7 @@ dependencies:
 ### Add import
 
 ```yaml
-import 'package:crypto_simple/src/crypto_simple.dart';
+import 'package:crypto_simple/crypto_simple.dart';
 ```
 
 ### Super simple to use in `Singleton` & `Classic` objects.
@@ -25,7 +25,7 @@ import 'package:crypto_simple/src/crypto_simple.dart';
 ###### - Define/Config Object:
 
 ```dart
-import 'package:crypto_simple/src/crypto_simple.dart';
+import 'package:crypto_simple/crypto_simple.dart';
 
 void main() {
 
@@ -48,10 +48,10 @@ void main() {
 String token = 'bearer 5@1#fG!';
 
 // easy encrypt 🛡️ !
-String encodeResult = CryptoSimple.instance.encryption(inputString: token);
+String encodeResult = CryptoSimpleSingleton.instance.encryption(inputString: token);
 
 // easy decrypt 🕵️‍♂️ !
-String decodeResult = CryptoSimple.instance.decryption(encryptedString: encodeResult);
+String decodeResult = CryptoSimpleSingleton.instance.decryption(encryptedString: encodeResult);
 
 ```
 
